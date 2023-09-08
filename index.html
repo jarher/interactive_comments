@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <title>Frontend Mentor | Interactive comments section</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="modal__panel modal__hide">
+    <div class="modal__content">
+      <div class="modal__title">Delete comment</div>
+      <p class="modal__message">Are you sure want to delete this comment? This will remove the comment and can't be
+        undone.</p>
+      <div class="modal__buttons">
+        <button class="btn modal__cancel" id="modalCancel">NO, CANCEL</button>
+        <button class="btn modal__delete" id="modalDelete">YES, DELETE</button>
+      </div>
+    </div>
+  </div>
+  <main>
+  </main>
+  <!-- Pull dynamic content from the data.json file -->
+  <script src="./assets/js/main.js" type="module"></script>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Jeffer Andrés Rojas H.</a>.
+  </div>
+</body>
+
+</html>
