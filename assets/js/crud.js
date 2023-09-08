@@ -1,5 +1,5 @@
 async function getData() {
-  const res = (await fetch("../../data.json")).json();
+  const res = (await fetch("https://github.com/jarher/interactive_comments/blob/main/data.json")).json();
   return res;
 }
 
