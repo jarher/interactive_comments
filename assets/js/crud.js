@@ -11,7 +11,7 @@ async function getData() {
         },
       }
     )
-  ).json();
+  );
   return res;
 }
 
