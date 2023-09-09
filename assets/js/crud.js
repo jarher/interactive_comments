@@ -6,7 +6,7 @@ async function getData() {
     credentials: 'same-origin', // include, *same-origin, omit
     headers: {
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': https://jarher.github.io/interactive_comments/
+      'Access-Control-Allow-Origin': 'https://jarher.github.io/interactive_comments/'
     },
   })).json();
   return res;
