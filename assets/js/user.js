@@ -4,8 +4,8 @@ import { readData } from "./crud.js";
 import { replies_content } from "./reply.js";
 import { appendElements, comments, currentUser, findMaxId } from "./utils.js";
 
-async function getUser(param) {
-  let data = await readData();
+function getUser(param) {
+  let data = readData();
 
   for (let index in data.comments) {
     if (

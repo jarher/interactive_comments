@@ -10,12 +10,10 @@ const main = document.querySelector("main");
 let commentId;
 let abledReply = false;
 
-async function printComments() {
-  const data = await readData();
-
-  data.comments.forEach((data) => {
-    main.append(createUser(data));
-    console.log(data)
+function printComments() {
+  const data = readData();
+  data.comments.forEach((elem) => {
+    main.append(createUser(elem));
   });
   main.append(createUserInput());
 }
@@ -41,13 +39,13 @@ function populateNewObject(data, comment, currentUser, user_data, replyingTo) {
   return newData;
 }
 async function sendReply(comment_text, currentUser, e) {
-  let data = await readData();
+  let data =  readData();
   if (e.target.parentNode.parentNode.className === "currentUser") {
     const newData = populateNewObject(data.comments, comment_text, currentUser);
     data.comments.push(newData);
     await createReply(data);
   } else {
-    const { user_data, index } = await getUser(e);
+    const { user_data, index } = getUser(e);
     const newData = populateNewObject(
       data.comments,
       comment_text,
@@ -55,7 +53,7 @@ async function sendReply(comment_text, currentUser, e) {
       user_data,
       true
     );
-    await createReply(newData, index, "replies");
+    createReply(newData, index, "replies");
   }
   main.innerHTML = "";
   printComments();
@@ -81,13 +79,13 @@ function replySpan(data) {
   replying_to.textContent = replyToName;
   return replying_to;
 }
-document.addEventListener("click", async (e) => {
-  const parent = e.target.parentNode;
 
+document.addEventListener("click", (e) => {
+  const parent = e.target.parentNode;
   if (e.target.id === "replyComment") {
     if (!abledReply) {
       const id = e.target.dataset.id;
-      const { user_data } = await getUser(Number.parseInt(id));
+      const { user_data } = getUser(Number.parseInt(id));
       const content = e.target.parentNode.parentNode;
       content.after(addComment("Add a Reply", currentUser, id));
       const addText = document.querySelector(".addText");
@@ -110,7 +108,7 @@ document.addEventListener("click", async (e) => {
     commentId = Number.parseInt(parent.dataset.id);
   }
   if (e.target.id === "modalDelete") {
-    const { index, data } = await getUser(commentId);
+    const { index, data } = getUser(commentId);
     if (data.comments[index].id === commentId) {
       data.comments.splice(index, 1);
     } else {
@@ -177,7 +175,7 @@ document.addEventListener("click", async (e) => {
       replyUpdateBtn.previousElementSibling.querySelector(
         "#textReply"
       ).textContent;
-    const { user_data, data, index, lastId } = await getUser(e);
+    const { user_data, data, index, lastId } = getUser(e);
     user_data.content = comment_text;
     user_data.createdAt = formatDate(Date.now);
     user_data.score = parent.querySelector(".scoreValue").textContent;
@@ -213,7 +211,7 @@ document.addEventListener("click", async (e) => {
   }
 });
 
-document.addEventListener("keyup", async (e) => {
+document.addEventListener("keyup", (e) => {
   if (e.target.id === "textReply") {
     const button = e.target.parentNode.parentNode.querySelector("button");
     disableReplyButton(e, button);

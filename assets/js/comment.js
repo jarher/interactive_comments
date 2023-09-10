@@ -66,7 +66,6 @@ function createCommentHeader(user, createdAt) {
   return appendElements(elements);
 }
 function createComment({ id, content, createdAt, score, user }) {
-
   const elements = [
     {
       element: "div",

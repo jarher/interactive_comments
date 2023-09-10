@@ -1,5 +1,6 @@
 import { readData } from "./crud.js";
-const response = await readData();
+const response = readData();
+console.log(response)
 const currentUser = response.currentUser;
 const comments = response.comments;
 
